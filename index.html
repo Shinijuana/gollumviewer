@@ -32,12 +32,23 @@
 
     <!-- Use the Model Viewer component -->
     <model-viewer 
+        id="neutral-demo" tone-mapping="neutral"
         alt="Gollum 3D Viewer" 
         src="assets/gollum.glb" 
         shadow-intensity="2" 
         camera-controls 
         exposure="0.4">
     </model-viewer>
+    <script>
+(() => {
+  const modelViewer = document.querySelector('#neutral-demo');
+  const checkbox = document.querySelector('#neutral');
+  
+  checkbox.addEventListener('change',() => {
+    modelViewer.environmentImage = checkbox.checked ? '' : 'legacy';
+  });
+})();
+</script>
 
 </body>
 </html>
